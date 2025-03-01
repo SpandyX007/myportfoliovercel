@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %} {{title}} {% endblock title %}
+{% block body %}
+
+<!-- Contact Start -->
+<div class="bg-white relative flex flex-wrap py-6 rounded shadow-md">
+<div class="container-fluid py-5" id="contact">
+    <div class="container">
+        <div class="position-relative d-flex align-items-center justify-content-center">
+            <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Contact</h1>
+            <h1 class="position-absolute text-uppercase text-primary">Contact Me</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="contact-form text-center">
+                    <div id="success"></div>
+                    {% comment %} <form name="sentMessage" id="contactForm" novalidate="novalidate" method="POST"> {% endcomment %}
+                        <form method="POST" action={% url "contactme" %}>
+                            {% csrf_token %}
+                        <div class="form-row">
+                            <div class="control-group col-sm-6">
+                                <input type="text" name="fname" class="form-control p-4" id="fname" placeholder="Your First Name"
+                                    required="required" data-validation-required-message="Please enter your first name" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group col-sm-6">
+                                <input type="text" class="form-control p-4" id="lname" name="lname" placeholder="Your Last Name"
+                                    required="required" data-validation-required-message="Please enter your last name" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <input type="email" class="form-control p-4" id="email" name="email" placeholder="Your Email"
+                                required="required" data-validation-required-message="Please enter a email adress" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="phonenumber" class="form-control p-4" id="contactnumber" name="contactnumber" placeholder="Contact Number"
+                                required="required" data-validation-required-message="Please enter your contact number" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="text" class="form-control p-4" id="designation" name="designation" placeholder="Designation followed by company name (if any)"
+                                required="required" data-validation-required-message="Please enter your designation" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="text" class="form-control p-4" id="subject" name="subject" placeholder="Subject"
+                                required="required" data-validation-required-message="Please enter a subject" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <textarea class="form-control py-3 px-4" rows="5" id="message" name="message" placeholder="Message"
+                                required="required"
+                                data-validation-required-message="Please enter your message"></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div>
+                            <button class="btn btn-outline-primary" type="submit" id="sendMessageButton">Send
+                                Message</button>
+                        </div>
+                    </form>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="text-gray-600 body-font relative">
+        <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
+          <div class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+            <iframe width="100%" height="500px" frameborder="0" marginheight="0" marginwidth="0" title="map" scrolling="no" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.446801775785!2d77.56681777454902!3d13.13419281129378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae18a5c54ece35%3A0x49c4c47a68a60b9c!2sBMS%20Institute%20of%20Technology%20and%20Management!5e0!3m2!1sen!2sin!4v1740227949728!5m2!1sen!2sin" style="border: 2px solid black; border-radius: 35px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+    </section>
+</div>
+<!-- Contact End -->
+{% endblock body %}
+<script src="https://unpkg.com/@tailwindcss/browser@4"></script>
